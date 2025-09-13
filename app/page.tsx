@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { FloodLink } from "@/components/ui/flood-link"
 import {
   CheckCircle,
   Phone,
@@ -125,9 +124,9 @@ export default function HomePage() {
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <FloodLink href="/templates" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/templates" className="text-muted-foreground hover:text-foreground transition-colors">
                 Examples
-              </FloodLink>
+              </a>
               <Button variant="outline" size="sm">
                 Contact
               </Button>
@@ -172,9 +171,7 @@ export default function HomePage() {
                   className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
                   asChild
                 >
-                  <FloodLink href="/templates" aria-label="View Clinic Examples" floodColor="var(--accent)">
-                    View Clinic Examples
-                  </FloodLink>
+                  <a href="/templates" aria-label="View Clinic Examples">View Clinic Examples</a>
                 </Button>
               </div>
 
