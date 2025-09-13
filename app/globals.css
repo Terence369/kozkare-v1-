@@ -121,52 +121,54 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground font-sans leading-relaxed;
   }
 
   /* Added typography hierarchy as specified */
-  h1 {
-    @apply text-4xl font-bold leading-tight; /* 40px/48px */
-  }
-
-  h2 {
-    @apply text-3xl font-bold leading-tight; /* 32px/40px */
-  }
-
-  p {
-    @apply text-base leading-6; /* 16px/24px */
-  }
+  h1 { @apply text-4xl font-bold leading-tight; }
+  h2 { @apply text-3xl font-bold leading-tight; }
+  p { @apply text-base leading-6; }
 }
 
 /* Added custom animation classes for organic motion */
 @keyframes breathe {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.015);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
 }
 
-@keyframes magnetic-hover {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.02);
-  }
-}
+@keyframes magnetic-hover { 0% { transform: scale(1); } 100% { transform: scale(1.02); } }
 
-.animate-breathe {
-  animation: breathe 3.2s ease-in-out infinite;
-}
+.animate-breathe { animation: breathe 3.2s ease-in-out infinite; }
 
-.animate-magnetic {
-  transition: transform 0.18s ease-out;
-}
+.animate-magnetic { transition: transform 0.18s ease-out; }
+.animate-magnetic:hover { animation: magnetic-hover 0.18s ease-out forwards; }
 
-.animate-magnetic:hover {
-  animation: magnetic-hover 0.18s ease-out forwards;
+/* Animation delay utility classes (converted from inline styles) */
+.anim-delay-0 { animation-delay: 0ms; }
+.anim-delay-150 { animation-delay: 150ms; }
+.anim-delay-200 { animation-delay: 200ms; }
+.anim-delay-300 { animation-delay: 300ms; }
+.anim-delay-400 { animation-delay: 400ms; }
+.anim-delay-500 { animation-delay: 500ms; }
+.anim-delay-600 { animation-delay: 600ms; }
+.anim-delay-700 { animation-delay: 700ms; }
+.anim-delay-800 { animation-delay: 800ms; }
+.anim-delay-900 { animation-delay: 900ms; }
+.anim-delay-1000 { animation-delay: 1000ms; }
+.anim-delay-1200 { animation-delay: 1200ms; }
+.anim-delay-1500 { animation-delay: 1500ms; }
+.anim-delay-2000 { animation-delay: 2000ms; }
+.anim-delay-2500 { animation-delay: 2500ms; }
+.anim-delay-3000 { animation-delay: 3000ms; }
+
+/* Soft animated background that respects brand colors */
+.motion-gradient {
+  background:
+    radial-gradient(60% 60% at 10% 10%, color-mix(in oklch, var(--primary) 12%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 50% at 90% 20%, color-mix(in oklch, var(--accent) 10%, transparent) 0%, transparent 60%),
+    radial-gradient(40% 40% at 20% 80%, color-mix(in oklch, var(--secondary) 10%, transparent) 0%, transparent 60%);
+  filter: blur(0px);
+  transform: scale(1.2);
 }
