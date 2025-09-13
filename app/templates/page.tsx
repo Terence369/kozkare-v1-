@@ -53,8 +53,8 @@ export default function TemplatesPage() {
                 Pricing
               </a>
               <a href="/examples" className="text-muted-foreground hover:text-foreground transition-colors">Examples</a>
-              <Button variant="outline" size="sm">
-                Contact
+              <Button variant="outline" size="sm" asChild>
+                <a href="/#contact">Contact</a>
               </Button>
             </div>
           </div>
