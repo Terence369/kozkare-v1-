@@ -3,18 +3,21 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import Image from "next/image"
 
 const projects = [
   {
     id: "netlify-1",
-    name: "Clinic Website – Conversion Focused",
+    name: "Dentica — Dentist & Dental Clinic",
     url: "https://68c27bf409d8488df3918e04--loquacious-kulfi-836669.netlify.app/",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F7eb0d38b9b744bef98b5ccd4f565460c",
     highlights: ["Fast", "Mobile-first", "Clear CTAs"],
   },
   {
     id: "netlify-2",
-    name: "Ayurvedic Spa – Demo Experience",
+    name: "Ayurveda Nirvana Spa | Authentic Ayurvedic Spa in Kochi, Kerala",
     url: "https://ayurvedic-spa-demo.netlify.app/",
+    image: "https://images.pexels.com/photos/5374224/pexels-photo-5374224.jpeg",
     highlights: ["Wellness Theme", "Service Flow", "Trust Sections"],
   },
 ]
@@ -52,22 +55,27 @@ export default function ExamplesPage() {
       <section className="py-12 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
           {projects.map((p) => (
-            <Card key={p.id} className="p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
-              <div className="space-y-4">
-                <div>
+            <Card key={p.id} className="overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative">
+                {p.image ? (
+                  <Image src={p.image} alt={`${p.name} thumbnail`} width={1200} height={700} className="h-48 w-full object-cover" />
+                ) : null}
+              </div>
+              <div className="p-6 flex flex-col justify-between">
+                <div className="space-y-3">
                   <h3 className="text-xl font-bold">{p.name}</h3>
                   <p className="text-sm text-muted-foreground break-all">{p.url}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {p.highlights.map((h) => (
+                      <Badge key={h} variant="outline" className="bg-primary/5 text-primary border-primary/20">{h}</Badge>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {p.highlights.map((h) => (
-                    <Badge key={h} variant="outline" className="bg-primary/5 text-primary border-primary/20">{h}</Badge>
-                  ))}
+                <div className="pt-6">
+                  <Button asChild className="w-full">
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${p.name}`}>Open Project</a>
+                  </Button>
                 </div>
-              </div>
-              <div className="pt-6">
-                <Button asChild className="w-full">
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${p.name}`}>Open Project</a>
-                </Button>
               </div>
             </Card>
           ))}
