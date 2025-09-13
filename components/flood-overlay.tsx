@@ -18,6 +18,7 @@ export default function FloodOverlay() {
   const pathname = usePathname()
   const [active, setActive] = useState(false)
   const [phase, setPhase] = useState<Phase>("idle")
+  const [grown, setGrown] = useState(false)
   const [coords, setCoords] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
   const [color, setColor] = useState<string>("var(--primary)")
   const durationRef = useRef<number>(600)
@@ -35,6 +36,10 @@ export default function FloodOverlay() {
       pendingHref.current = href
       setActive(true)
       setPhase("expanding")
+      setGrown(false)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setGrown(true))
+      })
       window.setTimeout(() => {
         if (pendingHref.current) router.push(pendingHref.current)
       }, durationRef.current * 0.75)
@@ -57,10 +62,13 @@ export default function FloodOverlay() {
       setActive(false)
       setPhase("idle")
       pendingHref.current = null
+      setGrown(false)
     }, durationRef.current + 350) as unknown as number
   }, [pathname])
 
   if (!active) return null
+
+  const transitionDuration = `${durationRef.current}ms`
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] flex items-center justify-center">
@@ -68,8 +76,8 @@ export default function FloodOverlay() {
         className={[
           "absolute rounded-full will-change-transform will-change-opacity",
           "w-[400vmax] h-[400vmax]",
-          phase === "expanding" ? "opacity-100 scale-0" : "opacity-0 scale-100",
-          "transition-[transform,opacity] duration-700 ease-out",
+          phase === "expanding" ? (grown ? "opacity-100 scale-100" : "opacity-100 scale-0") : "opacity-0 scale-100",
+          "transition-[transform,opacity] ease-out",
         ].join(" ")}
         style={{
           left: coords.x,
@@ -77,6 +85,7 @@ export default function FloodOverlay() {
           background: color,
           transformOrigin: "center",
           translate: "-50% -50%",
+          transitionDuration,
         }}
       />
     </div>
