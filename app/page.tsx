@@ -125,9 +125,9 @@ export default function HomePage() {
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <a href="#examples" className="text-muted-foreground hover:text-foreground transition-colors">
+              <FloodLink href="/templates" className="text-muted-foreground hover:text-foreground transition-colors">
                 Examples
-              </a>
+              </FloodLink>
               <Button variant="outline" size="sm">
                 Contact
               </Button>
