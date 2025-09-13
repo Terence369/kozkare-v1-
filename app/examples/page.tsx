@@ -11,6 +11,9 @@ const projects = [
     name: "Dentica — Dentist & Dental Clinic",
     url: "https://68c27bf409d8488df3918e04--loquacious-kulfi-836669.netlify.app/",
     image: "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F7eb0d38b9b744bef98b5ccd4f565460c",
+    description:
+      "Gentle, modern dental care site with clear service overview (checkups, whitening, braces, implants) and strong appointment CTAs.",
+    stack: ["Tailwind CSS", "Static HTML", "Netlify Hosting", "Builder.io CDN (assets)"] as const,
     highlights: ["Fast", "Mobile-first", "Clear CTAs"],
   },
   {
@@ -18,6 +21,9 @@ const projects = [
     name: "Ayurveda Nirvana Spa | Authentic Ayurvedic Spa in Kochi, Kerala",
     url: "https://ayurvedic-spa-demo.netlify.app/",
     image: "https://images.pexels.com/photos/5374224/pexels-photo-5374224.jpeg",
+    description:
+      "Authentic Kerala Ayurveda spa demo showcasing treatments (Abhyanga, Shirodhara, Panchakarma), packages, therapists, and FAQs.",
+    stack: ["Tailwind CSS", "Static HTML", "Netlify Hosting", "Pexels Imagery"] as const,
     highlights: ["Wellness Theme", "Service Flow", "Trust Sections"],
   },
 ]
@@ -65,11 +71,26 @@ export default function ExamplesPage() {
                 <div className="space-y-3">
                   <h3 className="text-xl font-bold">{p.name}</h3>
                   <p className="text-sm text-muted-foreground break-all">{p.url}</p>
+                  {"description" in p ? (
+                    <p className="text-sm text-muted-foreground">{p.description}</p>
+                  ) : null}
                   <div className="flex flex-wrap gap-2">
                     {p.highlights.map((h) => (
                       <Badge key={h} variant="outline" className="bg-primary/5 text-primary border-primary/20">{h}</Badge>
                     ))}
                   </div>
+                  {"stack" in p ? (
+                    <div className="pt-2">
+                      <div className="text-xs font-medium text-foreground/80 mb-1">Tech stack</div>
+                      <div className="flex flex-wrap gap-2">
+                        {(p.stack as readonly string[]).map((tech) => (
+                          <Badge key={tech} variant="outline" className="bg-muted text-foreground/80 border-border">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
                 <div className="pt-6">
                   <Button asChild className="w-full">
