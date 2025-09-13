@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import { Inter } from "next/font/google"
 import { Suspense } from "react"
-import FloodOverlay from "@/components/flood-overlay"
 import "./globals.css"
 
 const manrope = Manrope({
@@ -34,7 +33,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${manrope.variable} ${inter.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
-        <FloodOverlay />
         {/* Analytics component removed */}
       </body>
     </html>
