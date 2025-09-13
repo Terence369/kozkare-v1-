@@ -170,8 +170,11 @@ export default function HomePage() {
                   variant="outline"
                   size="lg"
                   className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
+                  asChild
                 >
-                  View Clinic Examples
+                  <FloodLink href="/templates" aria-label="View Clinic Examples" floodColor="var(--accent)">
+                    View Clinic Examples
+                  </FloodLink>
                 </Button>
               </div>
 
