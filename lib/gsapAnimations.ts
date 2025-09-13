@@ -63,7 +63,6 @@ export function initGsapAnimations() {
 
     // Cleanup when HMR/dispose
     const cleanup = () => window.removeEventListener("mousemove", onMove)
-    // @ts-ignore - Vite/Next HMR hook (no-op if not present)
-    if (import.meta && (import.meta as any).hot) (import.meta as any).hot.dispose(cleanup)
+    window.addEventListener("pagehide", cleanup)
   }
 }
