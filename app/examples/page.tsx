@@ -35,7 +35,7 @@ export default function ExamplesPage() {
               <a href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
               <a href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
               <span className="text-foreground font-medium">Examples</span>
-              <Button variant="outline" size="sm">Contact</Button>
+              <Button variant="outline" size="sm" asChild><a href="/#contact">Contact</a></Button>
             </div>
           </div>
         </div>
