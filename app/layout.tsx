@@ -33,6 +33,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${manrope.variable} ${inter.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
+        <div id="transition-overlays">
+          {/* Flood effect overlay */}
+          {typeof window !== "undefined" && require("@/components/flood-overlay").default ? null : null}
+        </div>
         {/* Analytics component removed */}
       </body>
     </html>
