@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to Kozkare healthcare brand colors */
+  --background: #fafaf7; /* Warm, patient-friendly background */
+  --foreground: #2c2c2c; /* Primary text color */
+  --card: #ffffff; /* Clean surfaces */
+  --card-foreground: #2c2c2c;
+  --popover: #ffffff;
+  --popover-foreground: #2c2c2c;
+  --primary: #1ab6a6; /* Primary Teal */
+  --primary-foreground: #ffffff;
+  --secondary: #223a59; /* Secondary Indigo */
+  --secondary-foreground: #f4f7fa; /* On-dark text */
+  --muted: #f4f6f8; /* Clean surfaces */
+  --muted-foreground: #5b6672; /* Muted text */
+  --accent: #ff6e30; /* Accent Coral for CTAs */
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #d7dde4; /* Form borders */
+  --input: #ffffff;
+  --ring: #1ab6a6; /* Teal focus ring */
+  --chart-1: #1ab6a6; /* Primary Teal */
+  --chart-2: #223a59; /* Secondary Indigo */
+  --chart-3: #ff6e30; /* Accent Coral */
+  --chart-4: #f4f6f8; /* Clean surfaces */
+  --chart-5: #5b6672; /* Muted */
+  --radius: 0.75rem; /* 12px border radius as specified */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2c2c2c;
+  --sidebar-primary: #1ab6a6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ff6e30;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d7dde4;
+  --sidebar-ring: #1ab6a6;
+}
+
+.dark {
+  --background: #223a59; /* Secondary Indigo for dark mode */
+  --foreground: #f4f7fa; /* On-dark text */
+  --card: #2c2c2c;
+  --card-foreground: #f4f7fa;
+  --popover: #2c2c2c;
+  --popover-foreground: #f4f7fa;
+  --primary: #1ab6a6; /* Keep teal consistent */
+  --primary-foreground: #ffffff;
+  --secondary: #5b6672;
+  --secondary-foreground: #f4f7fa;
+  --muted: #2c2c2c;
+  --muted-foreground: #5b6672;
+  --accent: #ff6e30; /* Keep coral consistent */
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: #5b6672;
+  --input: #2c2c2c;
+  --ring: #1ab6a6;
+  --chart-1: #1ab6a6;
+  --chart-2: #f4f7fa;
+  --chart-3: #ff6e30;
+  --chart-4: #5b6672;
+  --chart-5: #2c2c2c;
+  --sidebar: #2c2c2c;
+  --sidebar-foreground: #f4f7fa;
+  --sidebar-primary: #1ab6a6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ff6e30;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #5b6672;
+  --sidebar-ring: #1ab6a6;
+}
+
+@theme inline {
+  /* Updated to use Manrope and Inter fonts as specified */
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-inter);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans leading-relaxed;
+  }
+
+  /* Added typography hierarchy as specified */
+  h1 {
+    @apply text-4xl font-bold leading-tight; /* 40px/48px */
+  }
+
+  h2 {
+    @apply text-3xl font-bold leading-tight; /* 32px/40px */
+  }
+
+  p {
+    @apply text-base leading-6; /* 16px/24px */
+  }
+}
+
+/* Added custom animation classes for organic motion */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+@keyframes magnetic-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 3.2s ease-in-out infinite;
+}
+
+.animate-magnetic {
+  transition: transform 0.18s ease-out;
+}
+
+.animate-magnetic:hover {
+  animation: magnetic-hover 0.18s ease-out forwards;
+}
