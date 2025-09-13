@@ -4,7 +4,6 @@ import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { FloodLink } from "@/components/ui/flood-link"
 
 export default function TemplatesPage() {
   const templates = [
@@ -109,9 +108,7 @@ export default function TemplatesPage() {
                   </div>
                   <div className="pt-2">
                     <Button asChild className="w-full">
-                      <FloodLink href="#" aria-label={`Preview ${t.title}`} floodColor="var(--primary)">
-                        Preview Template
-                      </FloodLink>
+                      <a href="#" aria-label={`Preview ${t.title}`}>Preview Template</a>
                     </Button>
                   </div>
                 </div>
