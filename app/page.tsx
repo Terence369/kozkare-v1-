@@ -124,11 +124,11 @@ export default function HomePage() {
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <a href="#examples" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/examples" className="text-muted-foreground hover:text-foreground transition-colors">
                 Examples
               </a>
-              <Button variant="outline" size="sm">
-                Contact
+              <Button variant="outline" size="sm" asChild>
+                <a href="#contact">Contact</a>
               </Button>
             </div>
           </div>
@@ -161,16 +161,20 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   className="bg-accent hover:bg-accent/90 text-accent-foreground animate-magnetic group"
+                  asChild
                 >
-                  Get Your Clinic Website
-                  <Calendar className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <a href="#contact" aria-label="Get Your Clinic Website">
+                    Get Your Clinic Website
+                    <Calendar className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
+                  asChild
                 >
-                  View Clinic Examples
+                  <a href="/examples" aria-label="View Clinic Examples">View Clinic Examples</a>
                 </Button>
               </div>
 
@@ -446,7 +450,7 @@ export default function HomePage() {
       </section>
 
       {/* Service Showcase Section */}
-      <section className="py-20 lg:py-32 bg-background">
+      <section id="services" className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-6">
@@ -1228,7 +1232,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+      <section id="contact" className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto space-y-8">
             <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 animate-breathe">
