@@ -28,6 +28,7 @@ import {
   Crown,
   Sparkles,
 } from "lucide-react"
+import Link from "next/link"
 
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -127,9 +128,9 @@ export default function HomePage() {
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <a href="#examples" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/examples" className="text-muted-foreground hover:text-foreground transition-colors">
                 Examples
-              </a>
+              </Link>
               <Button variant="outline" size="sm">
                 Contact
               </Button>
