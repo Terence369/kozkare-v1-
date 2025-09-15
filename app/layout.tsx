@@ -4,6 +4,7 @@ import { Manrope } from "next/font/google"
 import { Inter } from "next/font/google"
 import { Suspense } from "react"
 import "./globals.css"
+import MotionEffects from "@/components/motion-effects"
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -32,8 +33,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${manrope.variable} ${inter.variable} antialiased`}>
+        <MotionEffects />
         <Suspense fallback={null}>{children}</Suspense>
-        {/* Analytics component removed */}
       </body>
     </html>
   )

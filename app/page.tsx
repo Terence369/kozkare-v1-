@@ -28,6 +28,7 @@ import {
   Crown,
   Sparkles,
 } from "lucide-react"
+import Link from "next/link"
 
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -86,6 +87,9 @@ export default function HomePage() {
     },
   ]
 
+  // Map delays for service cards without inline styles
+  const serviceDelay = ["anim-delay-0", "anim-delay-200", "anim-delay-400", "anim-delay-600"]
+
   useEffect(() => {
     setIsLoaded(true)
 
@@ -124,9 +128,9 @@ export default function HomePage() {
               <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <a href="#examples" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/examples" className="text-muted-foreground hover:text-foreground transition-colors">
                 Examples
-              </a>
+              </Link>
               <Button variant="outline" size="sm">
                 Contact
               </Button>
@@ -240,12 +244,10 @@ export default function HomePage() {
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div
-            className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-breathe"
-            style={{ animationDelay: "1s" }}
+            className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-breathe anim-delay-1000"
           ></div>
           <div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-breathe"
-            style={{ animationDelay: "2s" }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-breathe anim-delay-2000"
           ></div>
         </div>
       </section>
@@ -297,8 +299,7 @@ export default function HomePage() {
 
             {/* Card 2: What services & pricing? */}
             <Card
-              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-accent animate-breathe"
-              style={{ animationDelay: "0.5s" }}
+              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-accent animate-breathe anim-delay-500"
             >
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -331,8 +332,7 @@ export default function HomePage() {
 
             {/* Card 3: When & where can I visit? */}
             <Card
-              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-secondary animate-breathe"
-              style={{ animationDelay: "1s" }}
+              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-secondary animate-breathe anim-delay-1000"
             >
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
@@ -365,8 +365,7 @@ export default function HomePage() {
 
             {/* Card 4: What should I expect? */}
             <Card
-              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-primary animate-breathe"
-              style={{ animationDelay: "1.5s" }}
+              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-primary animate-breathe anim-delay-1500"
             >
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -399,8 +398,7 @@ export default function HomePage() {
 
             {/* Card 5: How do I contact you? */}
             <Card
-              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-accent animate-breathe md:col-span-2 lg:col-span-1"
-              style={{ animationDelay: "2s" }}
+              className="group p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-l-accent animate-breathe md:col-span-2 lg:col-span-1 anim-delay-2000"
             >
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -475,8 +473,7 @@ export default function HomePage() {
               {dentalServices.map((service, index) => (
                 <Card
                   key={service.name}
-                  className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-breathe group"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className={`p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-breathe group ${serviceDelay[index % serviceDelay.length]}`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
@@ -550,8 +547,7 @@ export default function HomePage() {
 
               {/* Call Efficiency */}
               <Card
-                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe"
-                style={{ animationDelay: "0.3s" }}
+                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe anim-delay-300"
               >
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Zap className="h-8 w-8 text-accent" />
@@ -564,8 +560,7 @@ export default function HomePage() {
 
               {/* Quality Leads */}
               <Card
-                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe"
-                style={{ animationDelay: "0.6s" }}
+                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe anim-delay-600"
               >
                 <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/20 transition-colors">
                   <Target className="h-8 w-8 text-secondary" />
@@ -578,8 +573,7 @@ export default function HomePage() {
 
               {/* Minimal Effort */}
               <Card
-                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe"
-                style={{ animationDelay: "0.9s" }}
+                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe anim-delay-900"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
                   <Lightbulb className="h-8 w-8 text-primary" />
@@ -592,8 +586,7 @@ export default function HomePage() {
 
               {/* Full Ownership */}
               <Card
-                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe md:col-span-2 lg:col-span-1"
-                style={{ animationDelay: "1.2s" }}
+                className="p-8 text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-breathe md:col-span-2 lg:col-span-1 anim-delay-1200"
               >
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Award className="h-8 w-8 text-accent" />
@@ -728,8 +721,7 @@ export default function HomePage() {
             </Card>
 
             <Card
-              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe"
-              style={{ animationDelay: "0.5s" }}
+              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe anim-delay-500"
             >
               <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                 <TrendingUp className="h-8 w-8 text-accent" />
@@ -742,8 +734,7 @@ export default function HomePage() {
             </Card>
 
             <Card
-              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe"
-              style={{ animationDelay: "1s" }}
+              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe anim-delay-1000"
             >
               <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/20 transition-colors">
                 <HeartHandshake className="h-8 w-8 text-secondary" />
@@ -888,8 +879,7 @@ export default function HomePage() {
 
             {/* Essential Clinic Website */}
             <Card
-              className="p-8 lg:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-breathe"
-              style={{ animationDelay: "0.5s" }}
+              className="p-8 lg:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-breathe anim-delay-500"
             >
               <div className="space-y-6">
                 <div className="text-center">
@@ -1150,8 +1140,7 @@ export default function HomePage() {
             </Card>
 
             <Card
-              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe"
-              style={{ animationDelay: "0.5s" }}
+              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe anim-delay-500"
             >
               <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                 <TrendingUp className="h-8 w-8 text-accent" />
@@ -1164,8 +1153,7 @@ export default function HomePage() {
             </Card>
 
             <Card
-              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe"
-              style={{ animationDelay: "1s" }}
+              className="p-8 text-center group hover:shadow-lg transition-all duration-300 animate-breathe anim-delay-1000"
             >
               <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/20 transition-colors">
                 <HeartHandshake className="h-8 w-8 text-secondary" />
@@ -1245,10 +1233,7 @@ export default function HomePage() {
             </p>
 
             {/* Urgency Element */}
-            <Card
-              className="max-w-2xl mx-auto p-6 bg-accent/5 border-accent/20 animate-breathe"
-              style={{ animationDelay: "0.5s" }}
-            >
+            <Card className="max-w-2xl mx-auto p-6 bg-accent/5 border-accent/20 animate-breathe anim-delay-500">
               <div className="flex items-center justify-center space-x-3 mb-4">
                 <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
                 <span className="font-semibold text-accent">Priority Setup Available</span>
@@ -1297,10 +1282,7 @@ export default function HomePage() {
                   </div>
                 </Card>
 
-                <Card
-                  className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-breathe"
-                  style={{ animationDelay: "0.3s" }}
-                >
+                <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-breathe anim-delay-300">
                   <div className="flex flex-col items-center space-y-3">
                     <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                       <Phone className="h-6 w-6 text-accent" />
@@ -1315,10 +1297,7 @@ export default function HomePage() {
                   </div>
                 </Card>
 
-                <Card
-                  className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-breathe"
-                  style={{ animationDelay: "0.6s" }}
-                >
+                <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-breathe anim-delay-600">
                   <div className="flex flex-col items-center space-y-3">
                     <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
                       <MessageCircle className="h-6 w-6 text-secondary" />
@@ -1327,7 +1306,7 @@ export default function HomePage() {
                       <h4 className="font-semibold mb-1">Email</h4>
                       <p className="text-sm text-muted-foreground mb-3">Detailed inquiry</p>
                       <Button variant="ghost" size="sm" className="text-secondary hover:bg-secondary/10">
-                      info@kozker.com
+                        info@kozker.com
                       </Button>
                     </div>
                   </div>
@@ -1336,21 +1315,17 @@ export default function HomePage() {
             </div>
 
             {/* Trust Elements */}
-            <div className="pt-8 border-t border-border/50">
-              
-            </div>
+            <div className="pt-8 border-t border-border/50"></div>
           </div>
         </div>
 
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div
-            className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-breathe"
-            style={{ animationDelay: "2s" }}
+            className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-breathe anim-delay-2000"
           ></div>
           <div
-            className="absolute bottom-10 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-breathe"
-            style={{ animationDelay: "3s" }}
+            className="absolute bottom-10 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-breathe anim-delay-3000"
           ></div>
         </div>
       </section>
