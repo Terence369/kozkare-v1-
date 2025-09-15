@@ -27,8 +27,32 @@ const examples: Example[] = [
       "https://framerusercontent.com/images/puGp4Hi5DUcsbLLVVYEhrdP1lg.jpg",
     ],
   },
-  { title: "Skin & Laser Centre", subtitle: "Dermatology • Ernakulam" },
-  { title: "Vision Eye Care", subtitle: "Eye Care • Thrissur" },
+  {
+    title: "Skin & Laser Centre",
+    subtitle: "Dermatology • Ernakulam",
+    href: "https://68c27bf409d8488df3918e04--loquacious-kulfi-836669.netlify.app/",
+    images: [
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F7eb0d38b9b744bef98b5ccd4f565460c",
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F6100a091acbe4210989f04123b3b3958",
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F44c34518470f404ab762203a7a21d144",
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F825096872a4f4de99ea9bcf00ba888e6",
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F47fd9528288d48058bcb6d627668b848",
+      "https://cdn.builder.io/api/v1/image/assets%2F2bdfb75c4a42464ea64f680845f3e793%2F32cccde8156349cca3893c3090f1ab4f",
+    ],
+  },
+  {
+    title: "Vision Eye Care",
+    subtitle: "Eye Care • Thrissur",
+    href: "https://ayurvedic-spa-demo.netlify.app/",
+    images: [
+      "https://images.pexels.com/photos/6187639/pexels-photo-6187639.jpeg",
+      "https://images.pexels.com/photos/6045199/pexels-photo-6045199.jpeg",
+      "https://images.pexels.com/photos/2833312/pexels-photo-2833312.jpeg",
+      "https://images.pexels.com/photos/3543680/pexels-photo-3543680.jpeg",
+      "https://images.pexels.com/photos/6220707/pexels-photo-6220707.jpeg",
+      "https://images.pexels.com/photos/7148527/pexels-photo-7148527.jpeg",
+    ],
+  },
 ]
 
 function ExampleCard({ example }: { example: Example }) {
